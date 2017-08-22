@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="/ibm/console/webtop/cgi-bin/InitiateSWAT.cgi">
+  <input type="hidden" name="Identifier" value="Initiate Swat Tool">
+  Where:<br>
+  <input type="text" name="Where" value="Location ...">
+  <br>
+  What Ops team is needed?<br>
+ <select name="opsteam">
+  <option disabled selected value> -- select a team -- </option>
+  <option value="Predictive Insights SaaS Ops">Predictive Insights SaaS Ops</option>
+  <option value="APM SaaS Ops">APM SaaS Ops</option>
+  <option value="Control Desk SaaS Ops">Control Desk SaaS Ops</option>
+  <option value="SaaS Envops and Monitoring">SaaS Envops and Monitoring</option>
+  <option value="Storage Insights Devops">Storage Insights Devops</option>
+  <option value="Workload Scheduler SaaS Ops">Workload Scheduler SaaS Ops</option>
+  <option value="Networking Team">Networking Team</option>
+</select> 
+  <br>
+  What is the CARE Session Number:<br>
+  <input type="text" name="SWAT_situation" value="Session ...">
+  <br>
+  Customer Name:<br>
+  <input type="text" name="SWAT_customer" value="">
+  <br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+</body>
+</html>

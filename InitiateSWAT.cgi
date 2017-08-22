@@ -21,12 +21,12 @@ import requests
 
 """
 Put your AlertNotification url, and API key / value into a config file
-AlertNotification.ini in this format:
+AlertNotification.ini in this format (Note: no single quotes around values):
 
 [Production]
 URI: https://ibmnotify.mybluemix.net/api/alerts/v1
-username: '11blahblahblahblahblahblahblahdf/foobarblatos'
-password: 'foobarblafoobarblafoobarblaxyzzy'
+username: 11blahblahblahblahblahblahblahdf/foobarblatos
+password: foobarblafoobarblafoobarblaxyzzy
 
 """
 

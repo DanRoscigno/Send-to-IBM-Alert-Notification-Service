@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
+<head><title>Netcool to Slack</title></head>
 <body>
 
-<form action="/ibm/console/webtop/cgi-bin/InitiateSWAT.cgi">
-  <input type="hidden" name="Identifier" value="Initiate Swat Tool">
-  Where:<br>
-  <input type="text" name="Where" value="Location ...">
-  <br>
-  What Ops team is needed?<br>
- <select name="opsteam">
+  <h3> Initiate SWAT </h3>
+blah blah.<br><br>
+
+NOTE: 
+blah blah blah blah blah blah blah.<br><br>
+
+<br><br>
+
+<form method="post" action="/ibm/console/webtop/cgi-bin/InitiateSWAT.cgi">
+<fieldset>
+<legend>Client Name</legend>
+<input type="text" name="SWAT_customer" size="100" required>
+<br>
+<legend>CARE Session number</legend>
+<input type="text" name="SWAT_session" size="100" value="" required>
+<br>
+<legend>Time raised by client (GMT Please)</legend>
+<input type="text" name="SWAT_TimeRaised" size="100" value="">
+<br>
+<legend>Issue reported</legend>
+<input type="text" name="SWAT_issue" size="100" value="">
+<br>
+<legend>Client environment</legend>
+<input type="text" name="SWAT_environment" size="100" value="">
+</fieldset>
+<br>
+<fieldset>
+<legend>Team Needed</legend>
+<select name="opsteam">
   <option disabled selected value> -- select a team -- </option>
   <option value="Predictive Insights SaaS Ops">Predictive Insights SaaS Ops</option>
   <option value="APM SaaS Ops">APM SaaS Ops</option>
@@ -17,19 +40,22 @@
   <option value="Storage Insights Devops">Storage Insights Devops</option>
   <option value="Workload Scheduler SaaS Ops">Workload Scheduler SaaS Ops</option>
   <option value="Networking Team">Networking Team</option>
-</select> 
-  <br>
-  What is the CARE Session Number:<br>
-  <input type="text" name="SWAT_situation" value="Session ...">
-  <br>
-  Customer Name:<br>
-  <input type="text" name="SWAT_customer" value="">
-  <br><br>
-  <input type="submit" value="Submit">
-</form> 
+</select>
+</fieldset>
+<br>
+<br>
+<fieldset>
+<legend>Additional information</legend>
+<input type="text" name="CSR_text" size="100" value="">
+</fieldset>
+<br>
 
-
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
-
+  <input type="submit" value="Initiate SWAT">
+  </form>
+  <pre>
+  </pre>
 </body>
+
 </html>
+
+

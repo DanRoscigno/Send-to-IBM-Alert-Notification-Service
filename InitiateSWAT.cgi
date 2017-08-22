@@ -21,13 +21,12 @@ import requests
 
 """
 Put your AlertNotification url, and API key / value into a config file
-AlertNotification.ini in this format (NOTE: Do not add quotes 
-                                            around the values:
+AlertNotification.ini in this format:
 
 [Production]
 URI: https://ibmnotify.mybluemix.net/api/alerts/v1
-username: 11blahblahblahblahblahblahblahdf/foobarblatos
-password: foobarblafoobarblafoobarblaxyzzy
+username: '11blahblahblahblahblahblahblahdf/foobarblatos'
+password: 'foobarblafoobarblafoobarblaxyzzy'
 
 """
 
@@ -48,18 +47,18 @@ SWAT_info = dict(urlparse.parse_qsl(os.environ['QUERY_STRING']))
 This gives me these keys:
     Key				          Description
   SWAP_opsteam      Ops team to page
-  SWAT_situation    Issue reported by customer
+  SWAT_issue        Issue reported by customer
   SWAT_customer     Customer name and environment
   WEBTOP_USER       Username in Netcool
 """
 
-
-situation      = SWAT_info['SWAT_situation']
+import time
+session        = SWAT_info['SWAT_session']
 customer       = SWAT_info['SWAT_customer']
-Identifier     = SWAT_info['Identifier']
-Where          = SWAT_info['Where']
+Identifier     = time.time()
+Where          = SWAT_info['SWAT_environment']
 opsteam        = SWAT_info['opsteam']
-What           = 'DANTEST ' + opsteam + 'Customer: ' + customer + ' Situation: ' + situation
+What           = 'DANTEST ' + opsteam + 'Customer: ' + customer + ' Situation: ' + session
 When           = ''
 Severity       = '5'
 Type           = '2'

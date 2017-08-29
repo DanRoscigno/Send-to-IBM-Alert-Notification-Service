@@ -79,7 +79,9 @@ alertNotification_data = {
   "Source": "Initiate SWAT Tool",
 }
 
+print 'This is what was sent to Alert Notification:'
 print json.dumps(alertNotification_data, sort_keys=False, indent=4, separators=(',', ': '))
+print '</pre>'
 
 alertNotificationResponse = requests.post(
     URI, auth=(username,password), json=alertNotification_data
@@ -96,9 +98,9 @@ else:
 
 print """
 
+<br>
+<b>Note: Please close this tab before initiating another SWAT.</b>
 
-
-  </pre>
 </body>
 
 </html>

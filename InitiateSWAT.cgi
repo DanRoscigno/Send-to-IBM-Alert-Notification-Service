@@ -21,7 +21,7 @@ import requests
 
 """
 Put your AlertNotification url, and API key / value into a config file
-AlertNotification.ini in this format (Note: no single quotes around values):
+AlertNotification.ini in this format (NOTE: no single quotes around values):
 
 [Production]
 URI: https://ibmnotify.mybluemix.net/api/alerts/v1
@@ -54,11 +54,12 @@ This gives me these keys:
 
 import time
 session        = SWAT_info['SWAT_session']
+issue          = SWAT_info['SWAT_issue']
 customer       = SWAT_info['SWAT_customer']
-Identifier     = time.time()
-Where          = SWAT_info['SWAT_environment']
 opsteam        = SWAT_info['opsteam']
-What           = 'DANTEST ' + opsteam + 'Customer: ' + customer + ' Situation: ' + session
+Identifier     = 'Initiate SWAT Tool' + str(time.time()) + opsteam
+Where          = customer + ' ' + SWAT_info['SWAT_environment']
+What           = 'DANTEST ' + opsteam + ' Customer: ' + customer + ' CARE Session: ' + session + ' Reported at: ' + SWAT_info['SWAT_TimeRaised'] + ' Issue: ' + issue
 When           = ''
 Severity       = '5'
 Type           = '2'
@@ -86,12 +87,6 @@ alertNotification_data = {
   "Severity": "Minor",
   "Type": "Problem",
   "Source": "Initiate SWAT Tool",
-  "Details": [
-    {
-      "Name": "Customer",
-      "Value": "%s" % customer
-    }
-  ]
 }
 
 print json.dumps(alertNotification_data, sort_keys=False, indent=4, separators=(',', ': '))

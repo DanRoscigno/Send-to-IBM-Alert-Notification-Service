@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head><title>Netcool to Slack</title></head>
+<head>
+<title>Netcool to Slack</title>
+</head>
 <body>
 
   <h3> Initiate SWAT </h3>
@@ -20,7 +22,7 @@ blah blah blah blah blah blah blah.<br><br>
 <input type="text" name="SWAT_session" size="100" value="" required>
 <br>
 <legend>Time raised by client (GMT Please)</legend>
-<input type="text" name="SWAT_TimeRaised" size="100" value="">
+<input id='date' size="100" type='date'name="SWAT_TimeRaised" value='2009-11-11'>
 <br>
 <legend>Issue reported</legend>
 <input type="text" name="SWAT_issue" size="100" value="">
@@ -52,8 +54,15 @@ blah blah blah blah blah blah blah.<br><br>
 
   <input type="submit" value="Initiate SWAT">
   </form>
-  <pre>
-  </pre>
+<script>
+(function () {
+    var date = new Date().toUTCString(),
+        field = document.querySelector('#date');
+    field.value = date;
+    console.log(field.value);
+
+})();
+</script>
 </body>
 
 </html>

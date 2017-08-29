@@ -21,12 +21,12 @@ import requests
 
 """
 Put your AlertNotification url, and API key / value into a config file
-AlertNotification.ini in this format (NOTE: no single quotes around values):
+AlertNotification.ini in this format:
 
 [Production]
 URI: https://ibmnotify.mybluemix.net/api/alerts/v1
-username: 11blahblahblahblahblahblahblahdf/foobarblatos
-password: foobarblafoobarblafoobarblaxyzzy
+username: '11blahblahblahblahblahblahblahdf/foobarblatos'
+password: 'foobarblafoobarblafoobarblaxyzzy'
 
 """
 
@@ -59,21 +59,11 @@ customer       = SWAT_info['SWAT_customer']
 opsteam        = SWAT_info['opsteam']
 Identifier     = 'Initiate SWAT Tool' + str(time.time()) + opsteam
 Where          = customer + ' ' + SWAT_info['SWAT_environment']
-What           = 'DANTEST ' + opsteam + ' Customer: ' + customer + ' CARE Session: ' + session + ' Reported at: ' + SWAT_info['SWAT_TimeRaised'] + ' Issue: ' + issue
+What           = 'SWAT Needed for ' + opsteam + ' Customer: ' + customer + ' CARE Session: ' + session + ' Reported at: ' + SWAT_info['SWAT_TimeRaised'] + ' Issue: ' + issue
 When           = ''
-Severity       = '5'
+Severity       = 'Critical'
 Type           = '2'
 Source         = 'Initiate SWAT Tool'
-"""
-Stuff that Alert Notification wants:
-'Identifier=' +'\'' + Identifier+ '\'',
-'Where=' + '\'' + Node + '\'',
-'What=' + '\'' + Summary + '\'',
-'When=' + to_char(to_int(LastOccurrence)*1000),
-'Severity=' + to_char(Severity),
-'Type=' + '\'' + Type + '\'',
-'Source=' + '\'' + Manager + '\''
-"""
 
 # Up top we read the config, now we will lookup the username and password for Alert Notification
 URI        = Config.get('Production', 'URI')
@@ -84,7 +74,7 @@ alertNotification_data = {
   "Identifier": "%s" % Identifier,
   "What": "%s" % What,
   "Where": "%s" % Where,
-  "Severity": "Minor",
+  "Severity": "%s" % Severity,
   "Type": "Problem",
   "Source": "Initiate SWAT Tool",
 }

@@ -15,7 +15,7 @@ Edit your html files in myBox/web_files/
 Deploy your files
 Note: enclose the smadmin password in doublequotes and escape those special chars
 
-./deployMyBox.sh -username smadmin -password "C\$tfood"
+./deployMyBox.sh -username smadmin -password "C\\$tfood"
 
 This is then the URL:
 https://169.54.176.175:16311/myBox/yourfile.html

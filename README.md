@@ -18,7 +18,7 @@ Note: enclose the smadmin password in doublequotes and escape those special char
 ./deployMyBox.sh -username smadmin -password "C\\$tfood"
 
 This is then the URL:
-https://169.54.176.175:16311/myBox/yourfile.html
+https://1.2.3.4:16311/myBox/yourfile.html
 
 For example, my filename is initiateSWAT.html, so:
-https://169.54.176.175:16311/myBox/initiateSWAT.html
+https://1.2.3.4:16311/myBox/initiateSWAT.html
